@@ -47,8 +47,9 @@ jobs:
 
       - name: Run Pytest
         env:
+          PYTHONPATH: .
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tenyguard_db
           PROJECT_NAME: TenyGuard
           DEBUG: False
         run: |
-          pytest --verbose
+          python -m pytest --verbose

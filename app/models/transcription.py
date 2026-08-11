@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class TranscriptionSegment(BaseModel):
@@ -15,5 +15,4 @@ class TranscriptionResponse(BaseModel):
     full_text: str
     segments: List[TranscriptionSegment] = []
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
